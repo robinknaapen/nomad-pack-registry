@@ -87,7 +87,7 @@ job [[ template "job_name" . ]] {
         image = "netbirdio/netbird-server:[[ var "server_version_tag" . ]]"
         ports = ["server", "vpn"]
         args = [
-          "--config"
+          "--config",
           "/etc/netbird/config.yaml"
         ]
       }
