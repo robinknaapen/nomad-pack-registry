@@ -15,7 +15,8 @@ job [[ template "job_name" . ]] {
     volume "data" {
       type = [[ var "volumes.data.type" . | quote ]]
       source = [[ var "volumes.data.source" . | quote ]]
-      read_only = false
+      access_mode     = [[ var "volumes.data.access_mode" . | quote ]]
+      attachment_mode = [[ var "volumes.data.attachment_mode" . | quote ]]
     }
 
     [[ template "vault" . ]]

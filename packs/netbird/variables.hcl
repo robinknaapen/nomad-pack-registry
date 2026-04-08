@@ -58,8 +58,10 @@ variable "volumes" {
   description = "Configuration for volumes to be mounted in the job"
   type = object({
     data = object({
-      type   = string
-      source = string
+      type            = string
+      source          = string
+      access_mode     = string
+      attachment_mode = string
     })
   })
 }

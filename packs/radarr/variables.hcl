@@ -37,8 +37,10 @@ variable "volumes" {
 
   type = object({
     mounts = list(object({
-      source = string
-      type   = string
+      source          = string
+      type            = string
+      access_mode     = string
+      attachment_mode = string
     }))
 
     docker = list(string)

@@ -21,7 +21,8 @@ region = [[ var "region" . | quote]]
 volume [[ $mount.name | quote ]] {
   source          = [[ $mount.source | quote ]]
   type            = [[ $mount.type | quote ]]
-  read_only       = false
+  access_mode     = [[ var "volumes.data.access_mode" . | quote ]]
+  attachment_mode = [[ var "volumes.data.attachment_mode" . | quote ]]
 }
 [[- end -]]
 [[- end -]]
