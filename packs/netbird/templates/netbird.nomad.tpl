@@ -9,16 +9,16 @@ job [[ template "job_name" . ]] {
     value     = "linux"
   }
 
-  [[- if var "volumes.data" . ]]
-  volume "data" {
-    type = [[ var "volumes.data.type" . | quote ]]
-    source = [[ var "volumes.data.source" . | quote ]]
-    read_only = false
-  }
-  [[- end ]]
-
   group "netbird" {
     count = 1
+
+    [[- if var "volumes.data" . ]]
+    volume "data" {
+      type = [[ var "volumes.data.type" . | quote ]]
+      source = [[ var "volumes.data.source" . | quote ]]
+      read_only = false
+    }
+    [[- end ]]
 
     [[ template "vault" . ]]
 
