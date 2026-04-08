@@ -53,3 +53,13 @@ variable "server_config" {
   description = "/etc/netbird/config.yml"
   type        = string
 }
+
+variable "volumes" {
+  description = "Configuration for volumes to be mounted in the job"
+  type = object({
+    data = object({
+      type   = string
+      source = string
+    })
+  })
+}

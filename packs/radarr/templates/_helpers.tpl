@@ -20,9 +20,8 @@ region = [[ var "region" . | quote]]
 [[- range $mount := (var "volumes.mounts" .) -]]
 volume [[ $mount.name | quote ]] {
   source          = [[ $mount.source | quote ]]
-  type            = "host"
-  access_mode     = "single-node-single-writer"
-  attachment_mode = "file-system"
+  type            = [[ $mount.type | quote ]]
+  read_only       = false
 }
 [[- end -]]
 [[- end -]]
