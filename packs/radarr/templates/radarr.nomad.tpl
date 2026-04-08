@@ -16,7 +16,7 @@ job [[ template "job_name" . ]] {
 
     network {
       port "http" {
-        to = 8989
+        to = 7878
       }
     }
 
