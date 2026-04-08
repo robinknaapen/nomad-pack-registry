@@ -72,7 +72,7 @@ job [[ template "job_name" . ]] {
       driver = "docker"
 
       volume_mount {
-        source = "data"
+        volume = "data"
         destination = "/var/lib/netbird"
       }
 
