@@ -12,7 +12,7 @@ job [[ var "job_name" . | quote ]] {
   group "netbird" {
     count = 1
 
-    [[- with var "volumes" . -]]
+    [[- if var "volumes" . -]]
     volume "data" {
       type = [[ var "volumes.data.type" . | quote ]]
       source = [[ var "volumes.data.source" . | quote ]]
