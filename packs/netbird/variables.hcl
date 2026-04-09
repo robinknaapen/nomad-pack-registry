@@ -41,7 +41,7 @@ variable "server_version_tag" {
 variable "vault" {
   description = "Use vault"
   type        = bool
-  default     = []
+  default     = false
 }
 
 variable "dashboard_env" {
