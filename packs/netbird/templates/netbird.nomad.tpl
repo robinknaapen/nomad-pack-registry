@@ -72,7 +72,7 @@ job [[ var "job_name" . | quote ]] {
     task "server" {
       driver = "docker"
 
-      [[- with var "volumes" . -]]
+      [[- if var "volumes" . -]]
       volume_mount {
         volume = "data"
         destination = "/var/lib/netbird"
