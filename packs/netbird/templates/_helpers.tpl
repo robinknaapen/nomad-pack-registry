@@ -30,7 +30,6 @@ volume [[ $mount.name | quote ]] {
 [[- define "vault" -]]
 [[- if var "vault" . ]]
 vault {
-  policies = [[ var "vault" . | toStringList ]]
   change_mode   = "noop"
 }
 [[- end -]]

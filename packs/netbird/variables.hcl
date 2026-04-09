@@ -39,8 +39,8 @@ variable "server_version_tag" {
 }
 
 variable "vault" {
-  description = "List of Vault Policies"
-  type        = list(string)
+  description = "Use vault"
+  type        = bool
   default     = []
 }
 
