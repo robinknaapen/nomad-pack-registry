@@ -12,14 +12,14 @@ job [[ var "job_name" . | quote ]] {
   group "netbird" {
     count = 1
 
-    [[- if var "volumes" . -]]
+    [[ if var "volumes" . -]]
     volume "data" {
       type = [[ var "volumes.data.type" . | quote ]]
       source = [[ var "volumes.data.source" . | quote ]]
       access_mode     = [[ var "volumes.data.access_mode" . | quote ]]
       attachment_mode = [[ var "volumes.data.attachment_mode" . | quote ]]
     }
-    [[- end -]]
+    [[- end ]]
 
     [[ template "vault" . ]]
 
@@ -72,12 +72,12 @@ job [[ var "job_name" . | quote ]] {
     task "server" {
       driver = "docker"
 
-      [[- if var "volumes" . -]]
+      [[ if var "volumes" . -]]
       volume_mount {
         volume = "data"
         destination = "/var/lib/netbird"
       }
-      [[- end -]]
+      [[- end ]]
 
       template {
         data = <<EOF
