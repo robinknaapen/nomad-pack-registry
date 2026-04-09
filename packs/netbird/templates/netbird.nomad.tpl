@@ -36,17 +36,17 @@ job [[ template "job_name" . ]] {
     }
 
     service {
-      name = "dashboard"
+      name = "[[ template "job_name" . ]]-dashboard"
       port = "dashboard"
     }
 
     service {
-      name = "server"
+      name = "[[ template "job_name" . ]]-server"
       port = "server"
     }
 
     service {
-      name = "vpn"
+      name = "[[ template "job_name" . ]]-vpn"
       port = "vpn"
     }
 

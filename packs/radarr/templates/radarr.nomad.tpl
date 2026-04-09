@@ -21,7 +21,7 @@ job [[ template "job_name" . ]] {
     }
 
     service {
-      name = "radarr"
+      name = "[[ template "job_name" . ]]-radarr"
       port = "http"
     }
 
