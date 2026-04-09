@@ -55,7 +55,7 @@ job [[ template "job_name" . ]] {
 
       template {
         data = <<EOF
-          [[- var "dashboard_env" . -]]
+        [[ var "dashboard_env" . ]]
         EOF
         destination = "secrets/dashboard.env"
         env = true
@@ -77,7 +77,7 @@ job [[ template "job_name" . ]] {
 
       template {
         data = <<EOF
-          [[- var "server_config" . -]]
+        [[ var "server_config" . ]]
         EOF
         destination = "/local/etc/netbird/config.yaml"
       }
