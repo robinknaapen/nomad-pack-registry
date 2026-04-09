@@ -4,8 +4,7 @@
 variable "job_name" {
   description = "The name to use as the job name which overrides using the pack name"
   type        = string
-  // If "", the pack name will be used
-  default = ""
+  default     = "radarr"
 }
 
 variable "datacenters" {

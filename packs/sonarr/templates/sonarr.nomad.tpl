@@ -1,4 +1,4 @@
-job [[ template "job_name" . ]] {
+job [[ var "job_name" . | quote ]] {
   [[ template "region" . ]]
   datacenters = [[ var "datacenters" . | toStringList ]]
   node_pool   = [[ var "node_pool" . | quote ]]
@@ -21,7 +21,7 @@ job [[ template "job_name" . ]] {
     }
 
     service {
-      name = "[[ template "job_name" . ]]-sonarr"
+      name = [[ printf "%s-%s" (var "job_name" .) "sonarr" | quote ]]
       port = "http"
     }
 
@@ -31,7 +31,7 @@ job [[ template "job_name" . ]] {
       config {
         image = "linuxserver/sonarr:[[ var "version_tag" . ]]"
         ports = ["http"]
-	[[ template "volumes_docker" . ]]
+        [[ template "volumes_docker" . ]]
       }
 
       [[ template "volumes_mounts" . ]]

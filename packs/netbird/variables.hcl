@@ -5,7 +5,7 @@ variable "job_name" {
   description = "The name to use as the job name which overrides using the pack name"
   type        = string
   // If "", the pack name will be used
-  default = ""
+  default = "netbird"
 }
 
 variable "datacenters" {
@@ -47,11 +47,13 @@ variable "vault" {
 variable "dashboard_env" {
   description = "dashboard env"
   type        = string
+  default     = ""
 }
 
 variable "server_config" {
   description = "/etc/netbird/config.yml"
   type        = string
+  default     = ""
 }
 
 variable "volumes" {
@@ -64,4 +66,5 @@ variable "volumes" {
       attachment_mode = string
     })
   })
+  default = {}
 }

@@ -1,4 +1,4 @@
-job [[ template "job_name" . ]] {
+job [[ var "job_name" . | quote ]] {
   [[ template "region" . ]]
   datacenters = [[ var "datacenters" . | toStringList ]]
   node_pool   = [[ var "node_pool" . | quote ]]
@@ -21,7 +21,7 @@ job [[ template "job_name" . ]] {
     }
 
     service {
-      name = "[[ template "job_name" . ]]-radarr"
+      name = [[ printf "%s-%s" (var "job_name" .) "radarr" | quote ]]
       port = "http"
     }
 
