@@ -18,6 +18,7 @@ volume [[ $mount.name | quote ]] {
 
 [[- define "vault" ]]
 [[- if var "vault" . ]]
+
 vault {
   change_mode   = "noop"
 }
