@@ -1,5 +1,5 @@
 job [[ var "job_name" . | quote ]] {
-  [[ template "region" . ]]
+  [[- template "region" . ]]
   datacenters = [[ var "datacenters" . | toStringList ]]
   node_pool   = [[ var "node_pool" . | quote ]]
 
@@ -12,7 +12,7 @@ job [[ var "job_name" . | quote ]] {
   group "netbird" {
     count = 1
 
-    [[ if var "volumes" . -]]
+    [[- if var "volumes" . ]]
     volume "data" {
       type = [[ var "volumes.data.type" . | quote ]]
       source = [[ var "volumes.data.source" . | quote ]]
@@ -21,7 +21,7 @@ job [[ var "job_name" . | quote ]] {
     }
     [[- end ]]
 
-    [[ template "vault" . ]]
+    [[- template "vault" . ]]
 
     network {
       port "dashboard" {
@@ -72,7 +72,7 @@ job [[ var "job_name" . | quote ]] {
     task "server" {
       driver = "docker"
 
-      [[ if var "volumes" . -]]
+      [[- if var "volumes" . ]]
       volume_mount {
         volume = "data"
         destination = "/var/lib/netbird"

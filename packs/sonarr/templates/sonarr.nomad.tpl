@@ -1,5 +1,5 @@
 job [[ var "job_name" . | quote ]] {
-  [[ template "region" . ]]
+  [[- template "region" . ]]
   datacenters = [[ var "datacenters" . | toStringList ]]
   node_pool   = [[ var "node_pool" . | quote ]]
 
@@ -12,7 +12,7 @@ job [[ var "job_name" . | quote ]] {
   group "sonarr" {
     count = 1
 
-    [[ template "volumes_sources" . ]]
+    [[- template "volumes_sources" . ]]
 
     network {
       port "http" {
@@ -31,10 +31,10 @@ job [[ var "job_name" . | quote ]] {
       config {
         image = "linuxserver/sonarr:[[ var "version_tag" . ]]"
         ports = ["http"]
-        [[ template "volumes_docker" . ]]
+        [[- template "volumes_docker" . ]]
       }
 
-      [[ template "volumes_mounts" . ]]
+      [[- template "volumes_mounts" . ]]
     }
   }
 }
