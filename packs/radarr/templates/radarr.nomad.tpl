@@ -15,6 +15,10 @@ job [[ var "job_name" . | quote ]] {
     [[- template "volumes_sources" . ]]
 
     network {
+      [[- if var "connect" . ]]
+      mode = "bridge"
+      [[- end ]]
+
       port "http" {
         to = 7878
       }
