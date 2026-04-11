@@ -35,3 +35,24 @@ volume_mount {
 volumes = [[ var "volumes.docker" . | toStringList ]]
 [[- end ]]
 [[- end ]]
+
+[[- define "connect" ]]
+[[ if var "connect" . ]]
+
+connect {
+  sidecar_service {
+    [[- if var "connect.proxy" . ]]
+    proxy {
+      [[- range $mount := (var "connect.proxy" .) ]]
+      upstreams {
+        destination_name = "count-api"
+        local_bind_port  = 8080
+        local_bind_address = "127.0.0.1"
+      }
+      [[- end ]]
+    }
+    [[- end ]]
+  }
+}
+[[- end ]]
+[[- end ]]

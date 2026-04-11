@@ -23,6 +23,8 @@ job [[ var "job_name" . | quote ]] {
     service {
       name = [[ printf "%s-%s" (var "job_name" .) "radarr" | quote ]]
       port = "http"
+
+      [[- template "connect" . ]]
     }
 
     task "radarr" {

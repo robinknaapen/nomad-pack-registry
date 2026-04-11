@@ -62,3 +62,17 @@ variable "pgid" {
   type        = string
   default     = "1000"
 }
+
+variable "connect" {
+  type = object({
+    proxy = list(object({
+      destination_name   = string
+      local_bind_port    = number
+      local_bind_address = string
+    }))
+  })
+
+  default = {
+    proxy = []
+  }
+}
