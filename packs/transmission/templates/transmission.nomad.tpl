@@ -23,6 +23,13 @@ job [[ var "job_name" . | quote ]] {
       port "p2p" {
         to = "51413"
       }
+
+      [[- if var "sidecar" . ]]
+
+      connect {
+        sidecar_service {}
+      }
+      [[- end ]]
     }
 
     service {

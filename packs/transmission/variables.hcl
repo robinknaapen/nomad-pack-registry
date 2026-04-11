@@ -74,3 +74,9 @@ variable "pgid" {
   type        = string
   default     = "1000"
 }
+
+variable "sidecar" {
+  description = "Enable as sidecar"
+  type        = bool
+  default     = true
+}
