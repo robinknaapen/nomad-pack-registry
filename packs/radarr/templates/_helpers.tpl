@@ -37,7 +37,7 @@ volumes = [[ var "volumes.docker" . | toStringList ]]
 [[- end ]]
 
 [[- define "connect" ]]
-[[ if var "connect" . ]]
+[[- if var "connect" . ]]
 
 connect {
   sidecar_service {
