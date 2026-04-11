@@ -17,8 +17,11 @@ job [[ var "job_name" . | quote ]] {
     [[- template "volumes_sources" . ]]
 
     network {
-      port "http" {
-        to = 7878
+      port "ui" {
+        to = 9091
+      }
+      port "p2p" {
+        to = "51413"
       }
     }
 
