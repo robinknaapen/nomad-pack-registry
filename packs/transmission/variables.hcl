@@ -62,3 +62,15 @@ variable "vault" {
   type        = bool
   default     = false
 }
+
+variable "puid" {
+  description = "UID"
+  type        = string
+  default     = "1000"
+}
+
+variable "pgid" {
+  description = "GID"
+  type        = string
+  default     = "1000"
+}

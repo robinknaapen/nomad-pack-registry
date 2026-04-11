@@ -50,3 +50,15 @@ variable "volumes" {
     docker = []
   }
 }
+
+variable "puid" {
+  description = "UID"
+  type        = string
+  default     = "1000"
+}
+
+variable "pgid" {
+  description = "GID"
+  type        = string
+  default     = "1000"
+}

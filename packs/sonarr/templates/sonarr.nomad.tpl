@@ -34,6 +34,17 @@ job [[ var "job_name" . | quote ]] {
         [[- template "volumes_docker" . ]]
       }
 
+      [[- if (or (var "puid" .) (var "pgid" .)) ]]
+      env {
+        [[- if (var "puid" .) ]]
+        PUID = [[ var "puid" . | quote ]]
+        [[- end ]]
+        [[- if (var "pgid" .) ]]
+        PGID = [[ var "pgid" . | quote ]]
+        [[- end ]]
+      }
+      [[- end ]]
+
       [[- template "volumes_mounts" . ]]
     }
   }
