@@ -26,7 +26,7 @@ job [[ var "job_name" . | quote ]] {
       }
 
       port "p2p" {
-        to = "51413"
+        to = 51413
       }
     }
 
