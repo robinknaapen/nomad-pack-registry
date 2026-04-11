@@ -24,6 +24,7 @@ job [[ var "job_name" . | quote ]] {
       port "ui" {
         to = 9091
       }
+
       port "p2p" {
         to = "51413"
       }
@@ -31,7 +32,7 @@ job [[ var "job_name" . | quote ]] {
 
     service {
       name = [[ printf "%s-%s" (var "job_name" .) "transmission" | quote ]]
-      port = "ui"
+      port = "9091"
 
       [[- if var "sidecar" . ]]
 
