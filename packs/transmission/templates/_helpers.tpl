@@ -16,7 +16,7 @@ volume [[ $mount.name | quote ]] {
   [[- with $mount.attachment_mode ]]
   attachment_mode = [[ . | quote ]]
   [[- end ]]
-  [[- with $mount.read_only ]]
+  [[- if $mount.read_only ]]
   read_only = [[ . ]]
   [[- end ]]
 }
