@@ -45,7 +45,7 @@ job [[ var "job_name" . | quote ]] {
 
       config {
         image = "linuxserver/transmission:[[ var "version_tag" . ]]"
-        ports = ["http"]
+        ports = ["ui", "p2p"]
         [[- template "volumes_docker" . ]]
       }
 
