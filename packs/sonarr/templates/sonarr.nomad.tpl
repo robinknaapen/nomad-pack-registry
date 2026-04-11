@@ -15,6 +15,10 @@ job [[ var "job_name" . | quote ]] {
     [[- template "volumes_sources" . ]]
 
     network {
+      [[- if var "connect" . ]]
+      mode = "bridge"
+      [[- end ]]
+
       port "http" {
         to = 8989
       }
@@ -22,7 +26,9 @@ job [[ var "job_name" . | quote ]] {
 
     service {
       name = [[ printf "%s-%s" (var "job_name" .) "sonarr" | quote ]]
-      port = "http"
+      port = "8989"
+
+      [[- template "connect" . ]]
     }
 
     task "sonarr" {
