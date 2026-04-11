@@ -29,6 +29,9 @@ volume [[ $mount.name | quote ]] {
 volume_mount {
   volume = [[ $mount.name | quote ]]
   destination = [[ $mount.destination | quote ]]
+  [[- with $mount.read_only ]]
+  read_only = [[ . ]]
+  [[- end ]]
 }
 [[- end ]]
 [[- end ]]
