@@ -45,9 +45,11 @@ connect {
     proxy {
       [[- range $mount := (var "connect.proxy" .) ]]
       upstreams {
-        destination_name = "count-api"
-        local_bind_port  = 8080
-        local_bind_address = "127.0.0.1"
+        destination_name = [[- $mount.destination_name | quote ]]
+        local_bind_port  = [[- $mount.local_bind_port ]]
+        [[- if $mount.local_bind_address ]]
+        local_bind_address = [[- $mount.local_bind_address | quote ]]
+        [[- end ]]
       }
       [[- end ]]
     }
