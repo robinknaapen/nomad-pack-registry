@@ -35,6 +35,7 @@ job [[ var "job_name" . | quote ]] {
       }
 
       [[- if (or (var "puid" .) (var "pgid" .)) ]]
+
       env {
         [[- if (var "puid" .) ]]
         PUID = [[ var "puid" . | quote ]]
