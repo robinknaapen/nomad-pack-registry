@@ -27,7 +27,12 @@ job [[ var "job_name" . | quote ]] {
 
     service {
       name = [[ printf "%s-%s" (var "job_name" .) "transmission" | quote ]]
-      port = "http"
+      port = "ui"
+    }
+
+    service {
+      name = [[ printf "%s-%s" (var "job_name" .) "p2p" | quote ]]
+      port = "p2p"
     }
 
     task "transmission" {
