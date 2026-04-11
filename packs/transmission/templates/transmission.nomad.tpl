@@ -17,6 +17,10 @@ job [[ var "job_name" . | quote ]] {
     [[- template "volumes_sources" . ]]
 
     network {
+      [[- if var "sidecar" . ]]
+      mode = "bridge"
+      [[- end ]]
+
       port "ui" {
         to = 9091
       }
