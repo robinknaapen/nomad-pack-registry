@@ -39,7 +39,7 @@ job [[ var "job_name" . | quote ]] {
       connect {
         sidecar_service {
           proxy {
-            tranparent_proxy {}
+            transparent_proxy {}
           }
         }
       }
