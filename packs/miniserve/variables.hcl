@@ -69,3 +69,8 @@ variable "env" {
   type        = string
   default     = ""
 }
+
+variable "root" {
+  description = "Root path to serve"
+  type        = string
+}

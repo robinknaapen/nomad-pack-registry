@@ -27,6 +27,9 @@ job [[ var "job_name" . | quote ]] {
 
       config {
         image = "svenstaro/miniserve:[[ var "version_tag" . ]]"
+        args = [
+          [[ var "root" . | quote ]]
+        ]
         ports = ["http"]
       }
 
