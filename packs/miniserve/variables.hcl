@@ -40,6 +40,7 @@ variable "volumes" {
       type            = string
       access_mode     = string
       attachment_mode = string
+      read_only       = bool
     }))
 
     docker = list(string)
