@@ -41,19 +41,9 @@ volumes = [[ var "volumes.docker" . | toStringList ]]
 
 connect {
   sidecar_service {
-    [[- if var "connect.proxy" . ]]
     proxy {
-      [[- range $mount := (var "connect.proxy" .) ]]
-      upstreams {
-        destination_name = [[- $mount.destination_name | quote ]]
-        local_bind_port  = [[- $mount.local_bind_port ]]
-        [[- if $mount.local_bind_address ]]
-        local_bind_address = [[- $mount.local_bind_address | quote ]]
-        [[- end ]]
-      }
-      [[- end ]]
+      transparent_proxy {}
     }
-    [[- end ]]
   }
 }
 [[- end ]]

@@ -26,7 +26,7 @@ job [[ var "job_name" . | quote ]] {
 
     service {
       name = [[ printf "%s-%s" (var "job_name" .) "sonarr" | quote ]]
-      port = "8989"
+      port = "http"
 
       [[- template "connect" . ]]
     }

@@ -64,15 +64,6 @@ variable "pgid" {
 }
 
 variable "connect" {
-  type = object({
-    proxy = list(object({
-      destination_name   = string
-      local_bind_port    = number
-      local_bind_address = string
-    }))
-  })
-
-  default = {
-    proxy = []
-  }
+  type    = bool
+  default = true
 }
