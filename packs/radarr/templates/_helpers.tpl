@@ -42,7 +42,9 @@ volumes = [[ var "volumes.docker" . | toStringList ]]
 connect {
   sidecar_service {
     proxy {
-      transparent_proxy {}
+      transparent_proxy {
+        exclude_inbound_ports = ["7878"]
+      }
     }
   }
 }
