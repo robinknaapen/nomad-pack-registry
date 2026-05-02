@@ -29,6 +29,14 @@ job [[ var "job_name" . | quote ]] {
       port = "http"
 
       [[- template "connect" . ]]
+
+      check {
+        type     = "http"
+        port     = "http"
+        path     = "/ping"
+        interval = "5s"
+        timeout  = "2s"
+      }
     }
 
     task "radarr" {
