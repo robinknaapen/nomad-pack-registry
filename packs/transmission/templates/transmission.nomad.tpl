@@ -32,16 +32,14 @@ job [[ var "job_name" . | quote ]] {
 
     service {
       name = [[ printf "%s-%s" (var "job_name" .) "transmission" | quote ]]
-      port = "9091"
+      port = "ui"
 
       [[- if var "sidecar" . ]]
 
       connect {
         sidecar_service {
           proxy {
-            transparent_proxy {
-              exclude_inbound_ports = [9091]
-            }
+            transparent_proxy {}
           }
         }
       }
