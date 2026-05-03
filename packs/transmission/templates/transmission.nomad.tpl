@@ -32,7 +32,7 @@ job [[ var "job_name" . | quote ]] {
 
     service {
       name = [[ printf "%s-%s" (var "job_name" .) "transmission" | quote ]]
-      port = "9091"
+      port = "ui"
       address_mode = "alloc"
 
       [[- if var "sidecar" . ]]
