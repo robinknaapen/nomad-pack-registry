@@ -1,0 +1,1 @@
+Prowlarr successfully deployed.
