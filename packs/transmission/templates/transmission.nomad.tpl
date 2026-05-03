@@ -33,13 +33,16 @@ job [[ var "job_name" . | quote ]] {
     service {
       name = [[ printf "%s-%s" (var "job_name" .) "transmission" | quote ]]
       port = "9091"
+      address_mode = "alloc"
 
       [[- if var "sidecar" . ]]
 
       connect {
         sidecar_service {
           proxy {
-            transparent_proxy {}
+            transparent_proxy {
+              exclude_inbound_ports = ["9091"]
+            }
           }
         }
       }
@@ -50,7 +53,6 @@ job [[ var "job_name" . | quote ]] {
         type = "http"
         port = "ui"
         path = "/"
-        expose = true
         interval = "5s"
         timeout = "10s"
       }

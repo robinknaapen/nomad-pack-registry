@@ -26,7 +26,8 @@ job [[ var "job_name" . | quote ]] {
 
     service {
       name = [[ printf "%s-%s" (var "job_name" .) "prowlarr" | quote ]]
-      port = "9696"
+      port = "http"
+      address_mode = "alloc"
 
       [[- template "connect" . ]]
 
@@ -36,7 +37,6 @@ job [[ var "job_name" . | quote ]] {
         path     = "/ping"
         interval = "5s"
         timeout  = "2s"
-        expose   = true
       }
     }
 
