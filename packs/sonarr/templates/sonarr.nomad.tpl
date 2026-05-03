@@ -26,7 +26,7 @@ job [[ var "job_name" . | quote ]] {
 
     service {
       name = [[ printf "%s-%s" (var "job_name" .) "sonarr" | quote ]]
-      port = "http"
+      port = "8989"
 
       [[- template "connect" . ]]
 
@@ -36,6 +36,7 @@ job [[ var "job_name" . | quote ]] {
         path     = "/ping"
         interval = "5s"
         timeout  = "2s"
+        expose   = true
       }
     }
 
