@@ -61,9 +61,5 @@ variable "resources" {
     memory_max = number
   })
 
-  default = {
-    cpu        = 0
-    memory     = 0
-    memory_max = 0
-  }
+  default = {}
 }
