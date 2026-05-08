@@ -52,20 +52,14 @@ variable "volumes" {
   }
 }
 
-variable "vault" {
-  description = "Use vault"
-  type        = bool
-  default     = false
+variable "puid" {
+  description = "UID"
+  type        = string
+  default     = "1000"
 }
 
-variable "user" {
-  description = "User for Docker"
+variable "pgid" {
+  description = "GID"
   type        = string
-  default     = "1000:1000"
-}
-
-variable "env" {
-  description = "env"
-  type        = string
-  default     = ""
+  default     = "1000"
 }

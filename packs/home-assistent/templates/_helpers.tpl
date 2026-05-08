@@ -36,15 +36,6 @@ volume_mount {
 [[- end ]]
 [[- end ]]
 
-[[- define "vault" ]]
-[[- if var "vault" . ]]
-
-vault {
-  change_mode   = "noop"
-}
-[[- end ]]
-[[- end ]]
-
 [[ define "volumes_docker" ]]
 [[- if not (eq (len (var "volumes.docker" .)) 0) ]]
 volumes = [[ var "volumes.docker" . | toStringList ]]

@@ -8,8 +8,6 @@ job [[ var "job_name" . | quote ]] {
 
     [[- template "volumes_sources" . ]]
 
-    [[- template "vault" . ]]
-
     network {
       port "ui" {
         to = "8123"
@@ -23,7 +21,6 @@ job [[ var "job_name" . | quote ]] {
 
     task "ha" {
       driver = "docker"
-      user   = [[ var "user" . | quote ]]
 
       config {
         image = "linuxserver/homeassistant:[[ var "version_tag" . ]]"
@@ -32,6 +29,18 @@ job [[ var "job_name" . | quote ]] {
         ]
         ports = ["ui"]
       }
+
+      [[- if (or (var "puid" .) (var "pgid" .)) ]]
+
+      env {
+        [[- if (var "puid" .) ]]
+        PUID = [[ var "puid" . | quote ]]
+        [[- end ]]
+        [[- if (var "pgid" .) ]]
+        PGID = [[ var "pgid" . | quote ]]
+        [[- end ]]
+      }
+      [[- end ]]
 
       [[- template "volumes_mounts" . ]]
     }
