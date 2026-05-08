@@ -24,9 +24,6 @@ job [[ var "job_name" . | quote ]] {
 
       config {
         image = "linuxserver/homeassistant:[[ var "version_tag" . ]]"
-        args = [
-          [[ var "root" . | quote ]]
-        ]
         ports = ["ui"]
       }
 
