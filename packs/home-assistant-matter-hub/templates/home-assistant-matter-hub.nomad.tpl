@@ -48,6 +48,10 @@ job [[ var "job_name" . | quote ]] {
       }
       [[- end ]]
 
+      env = {
+        HAMH_HTTP_PORT = 8482
+      }
+
       [[- template "resources" . ]]
 
       [[- template "volumes_mounts" . ]]
