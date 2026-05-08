@@ -35,7 +35,7 @@ job [[ var "job_name" . | quote ]] {
         image = "luligu/matterbridge:[[ var "version_tag" . ]]"
 
         args = [
-          "--docker",
+          "matterbridge", "--docker",
           "--port", "5540",
           "--frontent", "8585"
         ]
