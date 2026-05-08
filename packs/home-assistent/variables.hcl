@@ -51,3 +51,19 @@ variable "volumes" {
     docker = []
   }
 }
+
+variable "resources" {
+  description = "Configure resources"
+
+  type = object({
+    cpu        = number
+    memory     = number
+    memory_max = number
+  })
+
+  default = {
+    cpu        = 0
+    memory     = 0
+    memory_max = 0
+  }
+}

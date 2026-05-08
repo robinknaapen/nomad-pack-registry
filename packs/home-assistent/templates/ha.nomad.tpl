@@ -27,6 +27,8 @@ job [[ var "job_name" . | quote ]] {
         ports = ["ui"]
       }
 
+      [[- template "resources" ]]
+
       [[- template "volumes_mounts" . ]]
     }
   }
