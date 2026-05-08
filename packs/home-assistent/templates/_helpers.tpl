@@ -46,15 +46,15 @@ volumes = [[ var "volumes.docker" . | toStringList ]]
 [[- if var "resources" . ]]
 
 resources {
-  [[- if not (eq (var "resources.cpu" .) "") ]]
+  [[- if var "resources.cpu" . ]]
   cpu = [[ var "resources.cpu" . ]]
   [[- end ]]
 
-  [[- if not (eq (var "resources.memory" .) "") ]]
+  [[- if var "resources.memory" . ]]
   memory = [[ var "resources.memory" . ]]
   [[- end ]]
 
-  [[- if not (eq (var "resources.memory_max" .) "") ]]
+  [[- if var "resources.memory_max" . ]]
   memory_max = [[ var "resources.memory_max" . ]]
   [[- end ]]
 }
