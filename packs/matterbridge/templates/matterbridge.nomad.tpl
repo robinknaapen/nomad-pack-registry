@@ -37,7 +37,7 @@ job [[ var "job_name" . | quote ]] {
         args = [
           "matterbridge", "--docker",
           "--port", "5540",
-          "--frontent", "8585"
+          "--frontend", "8585"
         ]
 
         ports = ["ui", "bridge"]
