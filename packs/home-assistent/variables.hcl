@@ -26,9 +26,9 @@ variable "region" {
 }
 
 variable "version_tag" {
-  description = "The docker image version. For options, see https://docs.linuxserver.io/images/docker-homeassistant"
+  description = "The docker image version"
   type        = string
-  default     = "2026.5.0"
+  default     = "stable"
 }
 
 variable "volumes" {
@@ -50,16 +50,4 @@ variable "volumes" {
     mounts = []
     docker = []
   }
-}
-
-variable "puid" {
-  description = "UID"
-  type        = string
-  default     = "1000"
-}
-
-variable "pgid" {
-  description = "GID"
-  type        = string
-  default     = "1000"
 }

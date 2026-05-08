@@ -23,21 +23,9 @@ job [[ var "job_name" . | quote ]] {
       driver = "docker"
 
       config {
-        image = "linuxserver/homeassistant:[[ var "version_tag" . ]]"
+        image = "ghcr.io/home-assistant/home-assistant:[[ var "version_tag" . ]]"
         ports = ["ui"]
       }
-
-      [[- if (or (var "puid" .) (var "pgid" .)) ]]
-
-      env {
-        [[- if (var "puid" .) ]]
-        PUID = [[ var "puid" . | quote ]]
-        [[- end ]]
-        [[- if (var "pgid" .) ]]
-        PGID = [[ var "pgid" . | quote ]]
-        [[- end ]]
-      }
-      [[- end ]]
 
       [[- template "volumes_mounts" . ]]
     }
