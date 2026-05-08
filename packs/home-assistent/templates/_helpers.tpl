@@ -43,7 +43,7 @@ volumes = [[ var "volumes.docker" . | toStringList ]]
 [[- end ]]
 
 [[- define "resources" ]]
-[[- if (var "resources" .) ]]
+[[- if var "resources" . ]]
 
 resources {
   [[ if not (eq (var "resources.cpu" .) 0) ]]
