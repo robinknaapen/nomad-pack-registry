@@ -30,7 +30,7 @@ job [[ var "job_name" . | quote ]] {
         args = [
           [[ var "root" . | quote ]]
         ]
-        ports = ["http"]
+        ports = ["ui"]
       }
 
       [[- template "volumes_mounts" . ]]
