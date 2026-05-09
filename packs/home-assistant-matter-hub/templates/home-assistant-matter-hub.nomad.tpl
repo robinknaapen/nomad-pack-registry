@@ -32,11 +32,11 @@ job [[ var "job_name" . | quote ]] {
     service {
       name = [[ printf "%s-%s" (var "job_name" .) "bridge" | quote ]]
       port = "bridge"
+      address_mode = "alloc"
     }
 
     task "home-assistant-matter-hub" {
       driver = "docker"
-      address_mode = "alloc"
 
       [[- template "connect" . ]]
 

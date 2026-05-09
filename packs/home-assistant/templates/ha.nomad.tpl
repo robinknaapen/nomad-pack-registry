@@ -21,11 +21,11 @@ job [[ var "job_name" . | quote ]] {
     service {
       name = [[ printf "%s-%s" (var "job_name" .) "ha" | quote ]]
       port = "ui"
+      address_mode = "alloc"
     }
 
     task "ha" {
       driver = "docker"
-      address_mode = "alloc"
 
       [[- template "connect" . ]]
 
