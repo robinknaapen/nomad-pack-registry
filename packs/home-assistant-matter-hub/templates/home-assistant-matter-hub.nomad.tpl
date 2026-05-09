@@ -19,6 +19,10 @@ job [[ var "job_name" . | quote ]] {
         to = "8482"
       }
 
+      port "mdns" {
+        to = "5353"
+      }
+
       port "bridge" {
         to = "5540"
       }
@@ -42,7 +46,7 @@ job [[ var "job_name" . | quote ]] {
 
       config {
         image = "ghcr.io/riddix/home-assistant-matter-hub:[[ var "version_tag" . ]]"
-        ports = ["ui", "bridge"]
+        ports = ["ui", "mdns", "bridge"]
       }
 
       [[- if (var "env" .) ]]
