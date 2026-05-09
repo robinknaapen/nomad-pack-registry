@@ -33,12 +33,12 @@ job [[ var "job_name" . | quote ]] {
       name = [[ printf "%s-%s" (var "job_name" .) "bridge" | quote ]]
       port = "bridge"
       address_mode = "alloc"
+
+      [[- template "connect" . ]]
     }
 
     task "home-assistant-matter-hub" {
       driver = "docker"
-
-      [[- template "connect" . ]]
 
       config {
         image = "ghcr.io/riddix/home-assistant-matter-hub:[[ var "version_tag" . ]]"

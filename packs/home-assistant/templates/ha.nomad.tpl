@@ -22,12 +22,12 @@ job [[ var "job_name" . | quote ]] {
       name = [[ printf "%s-%s" (var "job_name" .) "ha" | quote ]]
       port = "ui"
       address_mode = "alloc"
+
+      [[- template "connect" . ]]
     }
 
     task "ha" {
       driver = "docker"
-
-      [[- template "connect" . ]]
 
       config {
         image = "ghcr.io/home-assistant/home-assistant:[[ var "version_tag" . ]]"
