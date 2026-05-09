@@ -40,10 +40,10 @@ job [[ var "job_name" . | quote ]] {
 
     task "home-assistant-matter-hub" {
       driver = "docker"
-      network_mode = "host"
 
       config {
         image = "ghcr.io/riddix/home-assistant-matter-hub:[[ var "version_tag" . ]]"
+        network_mode = "host"
         ports = ["ui", "mdns", "bridge"]
       }
 
