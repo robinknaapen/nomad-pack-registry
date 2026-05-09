@@ -69,3 +69,18 @@ vault {
 }
 [[- end ]]
 [[- end ]]
+
+[[- define "connect" ]]
+[[- if var "connect" . ]]
+
+connect {
+  sidecar_service {
+    proxy {
+      transparent_proxy {
+        exclude_inbound_ports = ["8482"]
+      }
+    }
+  }
+}
+[[- end ]]
+[[- end ]]

@@ -79,3 +79,8 @@ variable "env" {
   type        = string
   default     = ""
 }
+
+variable "connect" {
+  type    = bool
+  default = true
+}

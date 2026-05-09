@@ -67,3 +67,8 @@ variable "resources" {
     memory_max = 0
   }
 }
+
+variable "connect" {
+  type    = bool
+  default = true
+}

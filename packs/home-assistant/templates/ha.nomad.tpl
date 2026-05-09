@@ -9,6 +9,10 @@ job [[ var "job_name" . | quote ]] {
     [[- template "volumes_sources" . ]]
 
     network {
+      [[- if var "connect" . ]]
+      mode = "bridge"
+      [[- end ]]
+
       port "ui" {
         to = "8123"
       }
@@ -21,6 +25,9 @@ job [[ var "job_name" . | quote ]] {
 
     task "ha" {
       driver = "docker"
+      address_mode = "alloc"
+
+      [[- template "connect" . ]]
 
       config {
         image = "ghcr.io/home-assistant/home-assistant:[[ var "version_tag" . ]]"
