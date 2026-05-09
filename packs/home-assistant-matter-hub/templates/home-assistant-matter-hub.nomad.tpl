@@ -11,19 +11,19 @@ job [[ var "job_name" . | quote ]] {
     [[- template "volumes_sources" . ]]
 
     network {
-      [[- if var "connect" . ]]
-      mode = "bridge"
-      [[- end ]]
+      mode = "host"
 
       port "ui" {
         to = "8482"
       }
 
       port "mdns" {
+        static = "5353"
         to = "5353"
       }
 
       port "bridge" {
+        static = "5540"
         to = "5540"
       }
     }
@@ -36,13 +36,11 @@ job [[ var "job_name" . | quote ]] {
     service {
       name = [[ printf "%s-%s" (var "job_name" .) "bridge" | quote ]]
       port = "bridge"
-      address_mode = "alloc"
-
-      [[- template "connect" . ]]
     }
 
     task "home-assistant-matter-hub" {
       driver = "docker"
+      network_mode = "host"
 
       config {
         image = "ghcr.io/riddix/home-assistant-matter-hub:[[ var "version_tag" . ]]"
