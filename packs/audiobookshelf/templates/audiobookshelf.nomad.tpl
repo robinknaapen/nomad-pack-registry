@@ -6,6 +6,23 @@ job [[ var "job_name" . | quote ]] {
   group "audiobookshelf" {
     count = 1
 
+    [[- with (var "volume_config" .) ]]
+
+    volume "config" {
+      source          = [[ .source | quote ]]
+      type            = [[ .type | quote ]]
+      [[- with .access_mode ]]
+      access_mode     = [[ . | quote ]]
+      [[- end ]]
+      [[- with .attachment_mode ]]
+      attachment_mode = [[ . | quote ]]
+      [[- end ]]
+      [[- with .read_only ]]
+      read_only = [[ . ]]
+      [[- end ]]
+    }
+    [[- end ]]
+
     [[- with (var "volume_podcasts" .) ]]
 
     volume "podcasts" {
@@ -77,11 +94,6 @@ job [[ var "job_name" . | quote ]] {
       config {
         image = "advplyr/audiobookshelf:[[ var "version_tag" . ]]"
         ports = ["http"]
-        [[- with (var "config" .) ]]
-        volumes = [
-          "secrets/config:/config",
-        ]
-        [[- end ]]
       }
 
       [[- with (var "config" .) ]]
@@ -91,6 +103,17 @@ job [[ var "job_name" . | quote ]] {
         EOF
         destination = "secrets/config"
         env = true
+      }
+      [[- end ]]
+
+      [[- with (var "volume_config" .) ]]
+
+      volume_mount {
+        volume      = "config"
+        destination = [[ .destination | quote ]]
+        [[- with .read_only ]]
+        read_only = [[ . ]]
+        [[- end ]]
       }
       [[- end ]]
 

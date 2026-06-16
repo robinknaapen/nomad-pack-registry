@@ -31,8 +31,22 @@ variable "version_tag" {
   default     = "2.35.1"
 }
 
+variable "volume_config" {
+  description = "config volume"
+
+  type = object({
+    source          = string
+    type            = string
+    access_mode     = string
+    attachment_mode = string
+    read_only       = optional(bool)
+  })
+
+  default = {}
+}
+
 variable "volume_audiobooks" {
-  description = "audiobooks volumes"
+  description = "audiobooks volume"
 
   type = object({
     source          = string
@@ -46,7 +60,7 @@ variable "volume_audiobooks" {
 }
 
 variable "volume_podcasts" {
-  description = "podcasts volumes"
+  description = "podcasts volume"
 
   type = object({
     source          = string
@@ -60,7 +74,7 @@ variable "volume_podcasts" {
 }
 
 variable "volume_metadata" {
-  description = "metadata volumes"
+  description = "metadata volume"
 
   type = object({
     source          = string
