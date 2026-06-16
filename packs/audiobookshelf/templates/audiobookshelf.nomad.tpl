@@ -89,7 +89,6 @@ job [[ var "job_name" . | quote ]] {
 
     task "audiobookshelf" {
       driver = "docker"
-      user   = [[ var "user" . | quote ]]
 
       config {
         image = "advplyr/audiobookshelf:[[ var "version_tag" . ]]"

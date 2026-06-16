@@ -93,12 +93,6 @@ variable "vault" {
   default     = false
 }
 
-variable "user" {
-  description = "User for Docker"
-  type        = string
-  default     = "1000:1000"
-}
-
 variable "config" {
   description = "config"
   type        = string
