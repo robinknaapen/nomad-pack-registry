@@ -28,7 +28,7 @@ variable "region" {
 variable "version_tag" {
   description = "The docker image version. For options, see https://github.com/prophetse7en/clonarr/pkgs/container/clonarr"
   type        = string
-  default     = "3.2.1"
+  default     = "v3.2.1"
 }
 
 variable "volumes" {

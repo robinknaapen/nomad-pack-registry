@@ -7,5 +7,5 @@ pack {
   name        = "clonarr"
   description = "Sync, build and manage quality profiles and custom formats for Radarr and Sonarr — powered by TRaSH Guides."
   url         = "https://github.com/ProphetSe7en/clonarr"
-  version     = "3.2.1"
+  version     = "v3.2.1"
 }

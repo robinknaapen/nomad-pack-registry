@@ -44,7 +44,7 @@ job [[ var "job_name" . | quote ]] {
       driver = "docker"
 
       config {
-        image = "docker pull ghcr.io/prophetse7en/clonarr:dev:[[ var "version_tag" . ]]"
+        image = "ghcr.io/prophetse7en/clonarr:[[ var "version_tag" . ]]"
         ports = ["http"]
         [[- template "volumes_docker" . ]]
       }
