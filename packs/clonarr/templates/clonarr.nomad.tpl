@@ -34,7 +34,7 @@ job [[ var "job_name" . | quote ]] {
       check {
         type     = "http"
         port     = "http"
-        path     = "/ping"
+        path     = "/api/health"
         interval = "5s"
         timeout  = "2s"
       }
