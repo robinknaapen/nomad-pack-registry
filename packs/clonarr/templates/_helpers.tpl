@@ -43,7 +43,7 @@ connect {
   sidecar_service {
     proxy {
       transparent_proxy {
-        exclude_inbound_ports = ["9696"]
+        exclude_inbound_ports = ["6060"]
       }
     }
   }
